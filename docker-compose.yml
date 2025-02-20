@@ -1,0 +1,16 @@
+services:
+  database:
+    image: bitnami/postgresql:latest
+    container_name: api-solid-pg
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_DATABASE=apisolid
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+    volumes:
+      - postgres_data:/bitnami/postgresql
+
+volumes:
+  postgres_data:
+    driver: local
